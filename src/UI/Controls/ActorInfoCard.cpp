@@ -218,7 +218,7 @@ namespace ImGuiEx {
 			// --------------------------------- Max Size
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Max Size:");
+			ImGui::Text("最大体型:");
 			ImGui::TableSetColumnIndex(1);
 
 			if (Data.fScaleMax > 250.f) {
@@ -235,7 +235,7 @@ namespace ImGuiEx {
 
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Kills:");
+			ImGui::Text("已击杀:");
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%u", Data.iTotalKills);
 
@@ -292,15 +292,15 @@ namespace ImGuiEx {
 
 			const std::string TotalSizeBonusCalculation = fmt::format(
 				fmt::runtime(
-					"Size Essence & Absorbed Dragons: +{:.2f}x\n"
-					"Colossal Growth: +{:.2f}x\n"
-					"Potion Of Heights: +{:.0f}%%\n"
-					"Aspect Of Giantess: +{:.0f}%%\n"
-					"Overkills & C.Growth: +{:.2f}x\n\n"
-					"- Size Essence Increases the maximum achievable size when the size limit cap is set to \"Skill Based\"\n"
-					"- If Size Gain mode is set to \"Mass Mode\", then Essence Bonus is reduced by {:.0f}%% \n"
-					"- Essence is gained by killing and absorbing dragons while having the correct perk.\n"
-					"- Or by consuming specific potions found all around the world."
+					"体型精华 + 吸收龙魂: +{:.2f}x\n"
+					"巨大化成长: +{:.2f}x\n"
+					"身高药剂: +{:.0f}%%\n"
+					"庞然巨娘 +{:.0f}%%\n"
+					"虐杀与巨化: +{:.2f}x\n\n"
+					"- 体型精华会在体型上限设为 \"技能等级\" 时提升你的最大可达成体型\n"
+					"- 若体型增益模式为\"质量模式\"，则精华加成减少 {:.0f}%% \n"
+					"- 当你拥有对应天赋时，可以通过击杀并吸收巨龙来获得精华\n"
+					"- 或者通过饮用在世界各地发现的特定药剂"
 				),
 				bMassModeEnabled ? BonusSize_EssenceAndDragons * MassMode_ElixirPowerMultiplier : BonusSize_EssenceAndDragons * 1.0f,
 				BonusSize_Overkills,
@@ -313,7 +313,7 @@ namespace ImGuiEx {
 			// --------------------------------- Skill Level
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Skill Level:");
+			ImGui::Text("技能等级:");
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%.0f (%.0f%%)", Data.fSkillLevel, (Data.fSkillRatio * 100.f));
 
@@ -321,7 +321,7 @@ namespace ImGuiEx {
 			// --------------------------------- Shrink Resistance
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Shrink Resistance:");
+			ImGui::Text("缩小抗性:");
 			ImGuiEx::Tooltip(TShrinkResist, true);
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%.1f%%", Data.fShrinkResistance);
@@ -329,7 +329,7 @@ namespace ImGuiEx {
 			// --------------------------------- Weight
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Weight:");
+			ImGui::Text("体重:");
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text(Data.sFmtWeight.c_str());
 
@@ -337,7 +337,7 @@ namespace ImGuiEx {
 			// --------------------------------- Bonus Size
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Bonus Size:");
+			ImGui::Text("体型加成:");
 			ImGuiEx::Tooltip(TotalSizeBonusCalculation.c_str(), true);
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text(
@@ -350,7 +350,7 @@ namespace ImGuiEx {
 			// ---------------------------------  High Heel Damage
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("High Heel Damage:");
+			ImGui::Text("高跟鞋伤害加成:");
 			ImGuiEx::Tooltip(THHDamage, true);
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("+%.0f%%", Data.fHighHeelDamageBonus);
@@ -359,7 +359,7 @@ namespace ImGuiEx {
 			// ---------------------------------  Damage Multiplier
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Bonus Damage:");
+			ImGui::Text("伤害加成:");
 			ImGuiEx::Tooltip(TDamageBonus, true);
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%.1f%%", Data.fDamageBonus);
@@ -368,7 +368,7 @@ namespace ImGuiEx {
 			// --------------------------------- Carry Weight
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Bonus Carry Weight:");
+			ImGui::Text("负重重量加成:");
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%.1f", Data.fCarryWeightBonus);
 
@@ -376,7 +376,7 @@ namespace ImGuiEx {
 			// --------------------------------- Speed Multiplier
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Bonus Speed:");
+			ImGui::Text("速度加成:");
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%.1f%%", Data.fSpeedMult);
 
@@ -384,7 +384,7 @@ namespace ImGuiEx {
 			// ---------------------------------  Jump Multiplier
 			ImGui::TableNextRow();
 			ImGui::TableSetColumnIndex(0);
-			ImGui::Text("Bonus Jump Height:");
+			ImGui::Text("跳跃高度加成:");
 			ImGui::TableSetColumnIndex(1);
 			ImGui::Text("%.1f%%", Data.fJumpMult);
 
@@ -394,14 +394,14 @@ namespace ImGuiEx {
 
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0);
-				ImGui::Text("Stored Attributes:");
+				ImGui::Text("未被吸收的属性:");
 				ImGuiEx::Tooltip(TStoredAttributes, true);
 				ImGui::TableSetColumnIndex(1);
 				ImGui::Text("+%.2f", Data.fStolenAtributes);
 
 				ImGui::TableNextRow();
 				ImGui::TableSetColumnIndex(0);
-				ImGui::Text("Absorbed Attributes:");
+				ImGui::Text("已被吸收的属性:");
 				ImGuiEx::Tooltip(TAbsorbedAttributes, true);
 				ImGui::TableSetColumnIndex(1);
 				ImGui::Text("HP: +%.2f, MP: +%.2f, SP: +%.2f", Data.fStolenHealth, Data.fStolenMagicka, Data.fStolenStamina);
